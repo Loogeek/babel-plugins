@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "esno ./src/for-direction-entry.ts",
+    "start": "esno ./src/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

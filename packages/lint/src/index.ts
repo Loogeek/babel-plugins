@@ -1,16 +1,16 @@
 import { transformFromAstSync } from '@babel/core';
 import * as parser from '@babel/parser';
-import forDirectionLintPlugin from './plugins/for-direction-lint';
+import noFuncAssign from './plugins/no-func-assign-lint';
 
 const sourceCode = `
-for (var i = 0; i < 10; i++) {
+function foo() {
+  foo = bar;
 }
-for (var i = 10; i >= 0; i--) {
-}
-for (var i = 0; i < 10; i--) {
-}
-for (var i = 10; i >= 0; i++) {
-}
+var a = function hello() {
+hello = 123;
+};
+
+a = 'test'
 `;
 
 const ast = parser.parse(sourceCode, {
@@ -18,8 +18,6 @@ const ast = parser.parse(sourceCode, {
 });
 
 const result = transformFromAstSync(ast, sourceCode, {
-  plugins: [forDirectionLintPlugin],
+  plugins: [noFuncAssign],
   filename: 'input.js',
 });
-
-console.log(result?.code);
