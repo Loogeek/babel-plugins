@@ -1,0 +1,77 @@
+{
+  "name": "pkg-name",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@7.1.5",
+  "description": "",
+  "author": "Loogeek <xiaolong3956@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Loogeek/pkg-name#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loogeek/pkg-name.git"
+  },
+  "bugs": "https://github.com/Loogeek/pkg-name/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "start": "esno ./src/for-direction-entry.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.24.2",
+    "@antfu/ni": "^0.16.2",
+    "@antfu/utils": "^0.5.2",
+    "@types/babel__helper-plugin-utils": "^7.10.0",
+    "@types/node": "^17.0.35",
+    "bumpp": "^7.1.1",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "esno": "^0.16.3",
+    "pnpm": "^7.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.2",
+    "unbuild": "^0.7.4",
+    "vite": "^2.9.9",
+    "vitest": "^0.12.9"
+  },
+  "dependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/generator": "^7.19.0",
+    "@babel/helper-plugin-utils": "^7.19.0",
+    "@babel/parser": "^7.19.1",
+    "@babel/template": "^7.18.10",
+    "@babel/traverse": "^7.19.1",
+    "@babel/types": "^7.19.0",
+    "add": "^2.0.6",
+    "babel-plugin-tester": "^10.1.0",
+    "prettier": "^2.7.1"
+  }
+}
